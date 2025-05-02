@@ -13,6 +13,8 @@ header_row = next(reader)
 for index, column_head in enumerate(header_row):
     print(index, column_head)
 
+plt.style.use('ggplot')
+
 dates, unemp_rates = [], []
 for row in reader:
     current_date = datetime.strptime(row[0], '%Y-%m-%d')
@@ -20,6 +22,12 @@ for row in reader:
     dates.append(current_date)
     unemp_rates.append(rate)
 
-fig, ax = plt.subplots()
-ax.plot(dates, unemp_rates)
+fig, ax = plt.subplots(figsize=(10, 8))
+ax.plot(dates, unemp_rates, color='blue', linewidth=2)
+
+ax.set_title("Ohio Unemployment (by Month): 1976 - 2022", fontsize=24)
+ax.set_xlabel("Date", fontsize=20)
+ax.set_ylabel("Unemp Rate", fontsize=20)
+ax.tick_params(labelsize=18)
+
 plt.show()
