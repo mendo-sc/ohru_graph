@@ -1,3 +1,12 @@
+""" 
+unemp_rate
+Lab16_mendo-1
+May Endo
+5/2/25
+The program uses matplotlib to create a graph based on a csv file
+with data of Ohio unemployment rates, using dates as the independent 
+variable.
+"""
 from pathlib import Path
 import csv
 from datetime import datetime
